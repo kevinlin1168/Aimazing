@@ -8,7 +8,7 @@ router.post('/signup', async (req, res) => {
    let userName = req.body.userName;
    let password = req.body.password;
    try {
-      result =aw db.execute(`SELECT name FROM users WHERE name = '${userName}'`);
+      result =await db.execute(`SELECT name FROM users WHERE name = '${userName}'`);
       console.log(result)
    } catch (error) {
 
