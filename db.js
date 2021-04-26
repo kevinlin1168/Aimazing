@@ -12,7 +12,7 @@ const execute = async (query) => {
         const client = await pool.connect();     // gets connection
         const result = await client.query(query);  // sends queries
         client.release();
-        return result;
+        return result.rows;
     } catch (error) {
         console.error(error.stack);
         return error.stack;
