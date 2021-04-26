@@ -47,7 +47,7 @@ let createStoreTable = `
 let createReceiptTable = `
     CREATE TABLE IF NOT EXISTS "receipts" (
         "receipt_id" VARCHAR(100) NOT NULL,
-        "date" TIMESTAME NOT NULL,
+        "date" TIMESTAMP NOT NULL,
         "total" VARCHAR(50),
         "tag_id" VARCHAR(10),
         "store_id" VARCHAR(10),
