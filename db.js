@@ -11,9 +11,8 @@ const execute = async (query) => {
     try {
         const client = await pool.connect();     // gets connection
         const result = await client.query(query);  // sends queries
-        const results = { 'results': (result) ? result.rows : null};
         client.release();
-        return results;
+        return result;
     } catch (error) {
         console.error(error.stack);
         return error.stack;
