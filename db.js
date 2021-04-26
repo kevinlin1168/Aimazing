@@ -1,6 +1,6 @@
 // setup Database
-const { Client } = require('pg');
-const client = new Client({
+const { Pool } = require('pg');
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
@@ -9,14 +9,14 @@ const client = new Client({
 
 const execute = async (query) => {
     try {
-        await client.connect();     // gets connection
+        const client = await pool.connect();     // gets connection
         await client.query(query);  // sends queries
         return true;
     } catch (error) {
         console.error(error.stack);
         return false;
     } finally {
-        await client.end();         // closes connection
+        await client.release();         // closes connection
     }
 };
 
