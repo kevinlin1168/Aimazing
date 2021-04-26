@@ -49,8 +49,8 @@ let createReceiptTable = `
         "receipt_id" VARCHAR(100) NOT NULL,
         "date" TIMESTAMP NOT NULL,
         "total" VARCHAR(50),
-        "tag_id" VARCHAR(10),
-        "store_id" VARCHAR(10),
+        "tag_id" SERIAL,
+        "store_id" SERIAL,
         FOREIGN KEY (tag_id) REFERENCES tags (id),
         FOREIGN KEY (store_id) REFERENCES stores (id),
         PRIMARY KEY ("receipt_id")
