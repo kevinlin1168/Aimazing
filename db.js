@@ -55,17 +55,23 @@ let createReceiptTable = `
         PRIMARY KEY ("receipt_id")
     );`;
 
-const initDB = async ()=> {
-    Promise.all([
-        execute(createUserTabel),
-        execute(createTagTabel),
-        execute(createStoreTable),
-        execute(createReceiptTable)
-    ]).then(() => {
-        console.log('Create Table Success');
-    }).catch(() =>{
-        console.log('Create Table Fail');
+const initDB = ()=> {
+    execute(createUserTabel).then(() => {
+        execute(createTagTabel).then(() => {
+            execute.then(() => {
+                execute(createStoreTable).then(() => {
+                    execute(createReceiptTable).then((result) => {
+                        if(result) {
+                            console.log('Create Table Success')
+                        }
+                    })
+                })
+            })
+        })
     })
+        
+        
+        
 
 }
-export {execute, initDB}
+module.exports = {execute, initDB}
