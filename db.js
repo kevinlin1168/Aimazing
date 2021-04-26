@@ -57,11 +57,9 @@ let createReceiptTable = `
 const initDB = ()=> {
     execute(createUserTabel).then(() => {
         execute(createTagTabel).then(() => {
-            execute.then(() => {
-                execute(createStoreTable).then(() => {
-                    execute(createReceiptTable).then(() => {
-                        console.log('Create Table Success')
-                    })
+            execute(createStoreTable).then(() => {
+                execute(createReceiptTable).then(() => {
+                    console.log('Create Table Success')
                 })
             })
         })
