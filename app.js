@@ -4,9 +4,14 @@ var app = express();
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var config = require('./config');
+var rotues = require('./rotues');
 app.set('secret', config.secret);
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 var db = require('./db');
 db.initDB();
@@ -14,7 +19,7 @@ db.initDB();
 // check running enviroment
 var port = process.env.PORT || 3000;
 
-// require('./rotues')(app);
+app.use('/', rotues);
 // create
 app.listen(port, () => {
     console.log(`app listening on port ${port}!`);
