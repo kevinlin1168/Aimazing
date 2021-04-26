@@ -10,13 +10,12 @@ const pool = new Pool({
 const execute = async (query) => {
     try {
         const client = await pool.connect();     // gets connection
-        await client.query(query);  // sends queries
-        return true;
+        const result = await client.query(query);  // sends queries
+        client.release();
+        return result;
     } catch (error) {
         console.error(error.stack);
-        return false;
-    } finally {
-        await client.release();         // closes connection
+        return error.stack;
     }
 };
 
@@ -60,10 +59,8 @@ const initDB = ()=> {
         execute(createTagTabel).then(() => {
             execute.then(() => {
                 execute(createStoreTable).then(() => {
-                    execute(createReceiptTable).then((result) => {
-                        if(result) {
-                            console.log('Create Table Success')
-                        }
+                    execute(createReceiptTable).then(() => {
+                        console.log('Create Table Success')
                     })
                 })
             })
