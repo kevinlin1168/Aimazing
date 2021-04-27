@@ -15,14 +15,14 @@ const execute = async (query) => {
         return result.rows;
     } catch (error) {
         console.error(error.stack);
-        return error.stack;
+        throw 'error';
     }
 };
 
 let createUserTabel = `
     CREATE TABLE IF NOT EXISTS "users" (
         "id" SERIAL,
-        "name" VARCHAR(100) NOT NULL,
+        "name" VARCHAR(100) NOT NULL UNIQUE,
         "password" VARCHAR(100) NOT NULL,
         "role" INTEGER DEFAULT 1 NOT NULL,
         PRIMARY KEY ("id")
@@ -31,16 +31,16 @@ let createUserTabel = `
 let createTagTabel = `
     CREATE TABLE IF NOT EXISTS "tags" (
         "id" SERIAL,
-        "name" VARCHAR(100) NOT NULL,
+        "name" VARCHAR(100) NOT NULL UNIQUE,
         PRIMARY KEY ("id")
     );`;
 
 let createStoreTable = `
     CREATE TABLE IF NOT EXISTS "stores" (
         "id" SERIAL,
-        "name" VARCHAR(100) NOT NULL,
-        "tel" VARCHAR(50),
-        "gst_reg" VARCHAR(50),
+        "name" VARCHAR(100) NOT NULL UNIQUE,
+        "tel" VARCHAR(50) UNIQUE,
+        "gst_reg" VARCHAR(50) UNIQUE,
         PRIMARY KEY ("id")
     );`;
 

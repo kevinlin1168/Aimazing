@@ -1,4 +1,3 @@
-const e = require('express');
 var express = require('express');
 var md5 = require('md5');
 var db = require('../db');
