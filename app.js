@@ -2,7 +2,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var jwt = require('jsonwebtoken');
 var config = require('./config');
 var rotues = require('./rotues');
 app.set('secret', config.secret);
