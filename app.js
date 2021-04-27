@@ -1,6 +1,7 @@
 // use express method
 var express = require('express');
 var app = express();
+var fileUpload = require('express-fileupload');
 var bodyParser = require('body-parser');
 var config = require('./config');
 var rotues = require('./rotues');
@@ -11,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+// use file upload default options
+app.use(fileUpload());
 
 var db = require('./db');
 db.initDB();
