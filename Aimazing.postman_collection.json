@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "2b8fb766-681a-4f89-83d0-fce5778893dd",
+		"name": "Aimazing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"test\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/user/signup",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"test\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/user/login",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "addTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1MjMzNjAsImV4cCI6MTYxOTYwOTc2MH0.PQ-Ixzeuhbtnxs9wF5fa9mNcV0LpXEq7XHqR0EFlFcc\",\r\n    \"tagName\":\"tag1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/tags/addTag",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tags",
+								"addTag"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1MjAxMjIsImV4cCI6MTYxOTYwNjUyMn0.YXcbEJ3w0Tf3HHw4tYJNs-N8rNZR_KleFu2RDK8xPHE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/tags/getTags",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tags",
+								"getTags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1MjAxMjIsImV4cCI6MTYxOTYwNjUyMn0.YXcbEJ3w0Tf3HHw4tYJNs-N8rNZR_KleFu2RDK8xPHE\",\r\n    \"originTagName\":\"tag1\",\r\n    \"newTagName\":\"tag\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/tags/updateTag",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tags",
+								"updateTag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1MjAxMjIsImV4cCI6MTYxOTYwNjUyMn0.YXcbEJ3w0Tf3HHw4tYJNs-N8rNZR_KleFu2RDK8xPHE\",\r\n    \"tagName\":\"tag1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/tags/deleteTag",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tags",
+								"deleteTag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "receipt",
+			"item": [
+				{
+					"name": "uploadReceipt",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1NDI0NTIsImV4cCI6MTYxOTYyODg1Mn0.xUj3K-eiMVadT4jGdfy5C9WdxyUlABR9wSPPF842gDc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/HsuanYu Lin/Downloads/quiz_sample_receipts/sample_receipt_1.txt"
+								},
+								{
+									"key": "tagName",
+									"value": "tag",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/receipts/uploadReceipt",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"receipts",
+								"uploadReceipt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReceipt",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1ODkwMDUsImV4cCI6MTYxOTY3NTQwNX0.PXRsUax_vgYUFsQugPsh6iztOr9zlteG25h8uL-2uQg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/receipts/getReceipt",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"receipts",
+								"getReceipt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReceiptByTag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tagName\": \"tag\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1ODkwMDUsImV4cCI6MTYxOTY3NTQwNX0.PXRsUax_vgYUFsQugPsh6iztOr9zlteG25h8uL-2uQg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/receipts/getReceiptByTag",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"receipts",
+								"getReceiptByTag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReceiptTag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRlc3QiLCJpYXQiOjE2MTk1MjAxMjIsImV4cCI6MTYxOTYwNjUyMn0.YXcbEJ3w0Tf3HHw4tYJNs-N8rNZR_KleFu2RDK8xPHE\",\r\n    \"tagName\":\"tag\",\r\n    \"receiptID\":\"98260\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://protected-eyrie-01630.herokuapp.com/receipts/updateReceipteTag",
+							"protocol": "https",
+							"host": [
+								"protected-eyrie-01630",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"receipts",
+								"updateReceipteTag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
