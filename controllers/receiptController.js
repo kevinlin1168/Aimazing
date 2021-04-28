@@ -100,4 +100,79 @@ router.post('/uploadReceipt', async (req, res) => {
     }
 })
 
+router.get('/getReceipt', async(req, res) => {
+    try {
+        result =await db.execute(`SELECT receipts.receipt_id, receipts.date, receipts.total, stores.name AS storeName, stores.tel, stores.gst_reg, tags.name AS tagName FROM receipts INNER JOIN stores ON receipts.store_id = stores.id LEFT JOIN tags ON receipts.tag_id = tags.id`);
+        res.json({
+            "status": "success",
+            "msg": "Get receipts success",
+            "body": result
+        })
+    } catch (error) {
+        res.json({
+            "status": "error",
+            "msg": error
+        })
+    }
+})
+
+router.get('/getReceiptByTag', async(req, res) => {
+    try {
+        let tagName = req.body.tagName;
+        let result = await db.execute(`SELECT id FROM tags WHERE name = '${tagName}'`);
+        if(result == 0) {
+            res.json({
+                "status": "error",
+                "msg": "Can not find tag."
+            })
+        } else {
+            result =await db.execute(`SELECT receipts.receipt_id, receipts.date, receipts.total, stores.name AS storeName, stores.tel, stores.gst_reg, tags.name AS tagName FROM receipts INNER JOIN stores ON receipts.store_id = stores.id LEFT JOIN tags ON receipts.tag_id = tags.id WHERE receipts.tag_id = '${result[0].id}'`);
+            res.json({
+                "status": "success",
+                "msg": "Get receipts success",
+                "body": result
+            })
+        }
+    } catch (error) {
+        res.json({
+            "status": "error",
+            "msg": error
+        })
+    }
+})
+
+router.put('/updateReceipteTag', async(req, res) => {
+    try {
+        let tagName = req.body.tagName;
+        let receiptID = req.body.receiptID;
+        let tagResult = await db.execute(`SELECT id FROM tags WHERE name = '${tagName}'`);
+        if(tagResult == 0) {
+            res.json({
+                "status": "error",
+                "msg": "Can not find tag."
+            })
+        } else {
+            let receiptResult = await db.execute(`SELECT receipt_id FROM receipts WHERE receipt_id = '${receiptID}'`);
+            if(receiptResult == 0) {
+                res.json({
+                    "status": "error",
+                    "msg": "Can not find receipt."
+                })
+            } else {
+                await db.execute(`UPDATE receipts SET tag_id = '${tagResult[0].id}' WHERE receipt_id = '${receiptID}'`);
+                res.json({
+                    "status": "success",
+                    "msg": "Update tag success"
+                })
+            }
+        }
+        
+    } catch (error) {
+        res.json({
+            "status": "error",
+            "msg": error
+        })
+    }
+})
+
 module.exports = router;
